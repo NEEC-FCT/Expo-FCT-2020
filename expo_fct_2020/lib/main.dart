@@ -1,5 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,18 +30,39 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
 
+  //create all the pages
+  Widget _showPage = Text('Demo FCT');
+
+
+  Widget _pageChooser(int page , double width ,  double height) {
+    switch (page) {
+
+      case 4:
+        return new Expanded(
+          child: WebView(
+            initialUrl: 'https://expofct.neec-fct.com/cursos/',
+            javascriptMode: JavascriptMode.unrestricted,
+          ));
+        break;
+      default:
+        print("Upps.. out of bouds");
+        return new Text('Demo APP Expo FCT');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays ([]);
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Demo FCT'),
+            _showPage,
           ],
         ),
       ),
@@ -50,6 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
         curve: Curves.easeInBack,
         onItemSelected: (index) => setState(() {
           currentIndex = index;
+          setState(() {
+            print("Tapped on " + currentIndex.toString());
+            _showPage = _pageChooser(currentIndex , width , height);
+          });
+
         }),
         items: [
           BottomNavyBarItem(
