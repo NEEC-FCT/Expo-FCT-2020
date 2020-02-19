@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Expo FCT 2020',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -26,14 +26,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentIndex = 0;
-  int _counter = 0;
+  int currentIndex = 2;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Text('Demo FCT'),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: currentIndex,
@@ -68,31 +53,40 @@ class _MyHomePageState extends State<MyHomePage> {
         }),
         items: [
           BottomNavyBarItem(
-            icon: Icon(Icons.apps),
-            title: Text('Home'),
+            icon: Icon(Icons.schedule),
+            title: Text('Horário'),
             activeColor: Colors.red,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.people),
-            title: Text('Users'),
+            icon: Icon(Icons.info_outline),
+            title: Text('Atividades'),
             activeColor: Colors.purpleAccent,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.message),
+            icon: Icon(Icons.map),
             title: Text(
-              'Messages test for mes teset test test ',
+              'Mapa',
             ),
             activeColor: Colors.pink,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
+            icon: Icon(Icons.transfer_within_a_station),
+            title: Text('Percursos'),
             activeColor: Colors.blue,
             textAlign: TextAlign.center,
           ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.account_balance),
+            title: Text(
+              'Cursos',
+            ),
+            activeColor: Colors.pink,
+            textAlign: TextAlign.center,
+          ),
+
         ],
       ),
     );
