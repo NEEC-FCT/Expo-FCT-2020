@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'EXPO FCT 2020'),
     );
   }
 }
@@ -30,12 +30,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
 
+  static Expanded MapaPrincipal() {
+    return Expanded(
+        child: WebView(
+          initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
+          javascriptMode: JavascriptMode.unrestricted,
+        ));
+  }
+
   //create all the pages
-  Widget _showPage = Expanded(
-      child: WebView(
-        initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
-        javascriptMode: JavascriptMode.unrestricted,
-      ));
+  Widget _showPage = MapaPrincipal();
+  WebViewController _myController;
+
 
 
   Widget _pageChooser(int page , double width ,  double height) {
@@ -46,6 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: WebView(
               initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
               javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (controller){
+                _myController = controller;
+              },
+                onPageFinished: (url){
+                  _myController.loadUrl("javascript:(function() { " +
+                      "document.getElementById('gbr').style.display='none';})()");
+        },
             ));
         break;
 
