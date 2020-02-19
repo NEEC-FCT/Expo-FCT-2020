@@ -31,11 +31,23 @@ class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
 
   //create all the pages
-  Widget _showPage = Text('Demo FCT');
+  Widget _showPage = Expanded(
+      child: WebView(
+        initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
+        javascriptMode: JavascriptMode.unrestricted,
+      ));
 
 
   Widget _pageChooser(int page , double width ,  double height) {
     switch (page) {
+
+      case 2:
+        return new Expanded(
+            child: WebView(
+              initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
+              javascriptMode: JavascriptMode.unrestricted,
+            ));
+        break;
 
       case 4:
         return new Expanded(
