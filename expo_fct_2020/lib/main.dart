@@ -1,7 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:expo_fct_2020/Cursos.dart';
+import 'package:expo_fct_2020/Map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,45 +31,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
 
-  static Expanded MapaPrincipal() {
-    return Expanded(
-        child: WebView(
-          initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
-          javascriptMode: JavascriptMode.unrestricted,
-        ));
-  }
-
   //create all the pages
-  Widget _showPage = MapaPrincipal();
-  WebViewController _myController;
+  Widget _showPage = Map();
 
-
-
-  Widget _pageChooser(int page , double width ,  double height) {
+  Widget _pageChooser(int page, double width, double height) {
     switch (page) {
-
       case 2:
-        return new Expanded(
-            child: WebView(
-              initialUrl: 'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
-              javascriptMode: JavascriptMode.unrestricted,
-              onWebViewCreated: (controller){
-                _myController = controller;
-              },
-                onPageFinished: (url){
-                  _myController.loadUrl("javascript:(function() { " +
-                      "document.getElementById('gbr').style.display='none';})()");
-        },
-            ));
+        return Map();
         break;
 
       case 4:
-        return new Expanded(
-          child: WebView(
-            initialUrl: 'https://expofct.neec-fct.com/cursos/',
-            javascriptMode: JavascriptMode.unrestricted,
-          ));
-        break;
+        return Cursos();
       default:
         print("Upps.. out of bouds");
         return new Text('Demo APP Expo FCT');
@@ -77,18 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays ([]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _showPage,
-          ],
+        child: Center(
+          child: _showPage,
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
@@ -100,9 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
           currentIndex = index;
           setState(() {
             print("Tapped on " + currentIndex.toString());
-            _showPage = _pageChooser(currentIndex , width , height);
+            _showPage = _pageChooser(currentIndex, width, height);
           });
-
         }),
         items: [
           BottomNavyBarItem(
@@ -139,7 +107,6 @@ class _MyHomePageState extends State<MyHomePage> {
             activeColor: Colors.pink,
             textAlign: TextAlign.center,
           ),
-
         ],
       ),
     );
