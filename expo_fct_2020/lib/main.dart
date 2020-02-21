@@ -1,8 +1,10 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:expo_fct_2020/Cursos.dart';
 import 'package:expo_fct_2020/Map.dart';
+import 'package:expo_fct_2020/Slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +32,28 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
+
+
+
+  Future<Null> getSharedPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (!prefs.containsKey("slider")) {
+      print('Ainda não viu slider');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Slide()),
+      );
+    }
+
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    getSharedPrefs();
+
+  }
 
   //create all the pages
   Widget _showPage = Map();
