@@ -9,8 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,8 +33,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 2;
 
-
-
   Future<Null> getSharedPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (!prefs.containsKey("slider")) {
@@ -46,15 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
         MaterialPageRoute(builder: (context) => Slide()),
       );
     }
-
   }
-
 
   @override
   void initState() {
     super.initState();
     getSharedPrefs();
-
   }
 
   //create all the pages
@@ -79,9 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
-
-
 
     return Scaffold(
       body: Center(

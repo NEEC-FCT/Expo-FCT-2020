@@ -9,7 +9,6 @@ import 'Animation_Gesture/page_reveal.dart';
 import 'UI/pager_indicator.dart';
 import 'UI/pages.dart';
 
-
 class Slide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,22 +23,19 @@ class Slide extends StatelessWidget {
 }
 
 class SlidePage extends StatefulWidget {
-
   @override
   _SlidePageState createState() => new _SlidePageState();
 }
 
-
 class _SlidePageState extends State<SlidePage> with TickerProviderStateMixin {
-
   StreamController<SlideUpdate> slideUpdateStream;
   AnimatedPageDragger animatedPageDragger;
 
-  int activeIndex = 0 ;
+  int activeIndex = 0;
   int endOfslider = 3;
   SlideDirection slideDirection = SlideDirection.none;
-  int nextPageIndex = 0 ;
-  double slidePercent= 0.0;
+  int nextPageIndex = 0;
+  double slidePercent = 0.0;
 
   void onDonePress() async {
     // Do what you want
@@ -52,75 +48,65 @@ class _SlidePageState extends State<SlidePage> with TickerProviderStateMixin {
     );
   }
 
-  _SlidePageState(){
+  _SlidePageState() {
     slideUpdateStream = new StreamController<SlideUpdate>();
 
-    slideUpdateStream.stream.listen((SlideUpdate event){
-      setState(()  {
+    slideUpdateStream.stream.listen((SlideUpdate event) {
+      setState(() {
         if (nextPageIndex == endOfslider) {
           nextPageIndex--;
           print("Mostra o menu");
           onDonePress();
+        } else {
+          if (event.updateType == UpdateType.dragging) {
+            slideDirection = event.direction;
+            slidePercent = event.slidePercent;
 
-        }
-        else{
+            print(nextPageIndex);
 
-        if (event.updateType == UpdateType.dragging) {
-          slideDirection = event.direction;
-          slidePercent = event.slidePercent;
+            if (slideDirection == SlideDirection.leftToRight) {
+              nextPageIndex = activeIndex - 1;
+            } else if (slideDirection == SlideDirection.rightToLeft) {
+              nextPageIndex = activeIndex + 1;
+            } else {
+              nextPageIndex = activeIndex;
+            }
+          } else if (event.updateType == UpdateType.doneDragging) {
+            if (slidePercent > 0.5) {
+              animatedPageDragger = new AnimatedPageDragger(
+                slideDirection: slideDirection,
+                transitionGoal: TransitionGoal.open,
+                slidePercent: slidePercent,
+                slideUpdateStream: slideUpdateStream,
+                vsync: this,
+              );
+            } else {
+              animatedPageDragger = new AnimatedPageDragger(
+                slideDirection: slideDirection,
+                transitionGoal: TransitionGoal.close,
+                slidePercent: slidePercent,
+                slideUpdateStream: slideUpdateStream,
+                vsync: this,
+              );
 
-          print(nextPageIndex);
+              nextPageIndex = activeIndex;
+            }
 
+            animatedPageDragger.run();
+          } else if (event.updateType == UpdateType.animating) {
+            slideDirection = event.direction;
+            slidePercent = event.slidePercent;
+          } else if (event.updateType == UpdateType.doneAnimating) {
+            activeIndex = nextPageIndex;
 
-          if (slideDirection == SlideDirection.leftToRight) {
-            nextPageIndex = activeIndex - 1;
-          } else if (slideDirection == SlideDirection.rightToLeft) {
-            nextPageIndex = activeIndex + 1;
+            slideDirection = SlideDirection.none;
+            slidePercent = 0.0;
+
+            animatedPageDragger.dispose();
           }
-          else {
-            nextPageIndex = activeIndex;
-          }
-        } else if (event.updateType == UpdateType.doneDragging) {
-          if (slidePercent > 0.5) {
-            animatedPageDragger = new AnimatedPageDragger(
-              slideDirection: slideDirection,
-              transitionGoal: TransitionGoal.open,
-              slidePercent: slidePercent,
-              slideUpdateStream: slideUpdateStream,
-              vsync: this,
-            );
-          } else {
-            animatedPageDragger = new AnimatedPageDragger(
-              slideDirection: slideDirection,
-              transitionGoal: TransitionGoal.close,
-              slidePercent: slidePercent,
-              slideUpdateStream: slideUpdateStream,
-              vsync: this,
-            );
-
-            nextPageIndex = activeIndex;
-          }
-
-          animatedPageDragger.run();
         }
-        else if (event.updateType == UpdateType.animating) {
-          slideDirection = event.direction;
-          slidePercent = event.slidePercent;
-        }
-
-        else if (event.updateType == UpdateType.doneAnimating) {
-          activeIndex = nextPageIndex;
-
-          slideDirection = SlideDirection.none;
-          slidePercent = 0.0;
-
-          animatedPageDragger.dispose();
-        }
-      }
       });
     });
-
-
   }
 
   @override
@@ -130,13 +116,13 @@ class _SlidePageState extends State<SlidePage> with TickerProviderStateMixin {
         children: [
           new Page(
             viewModel: pages[activeIndex],
-            percentVisible: 1.0 ,
+            percentVisible: 1.0,
           ),
           new PageReveal(
             revealPercent: slidePercent,
             child: new Page(
               viewModel: pages[nextPageIndex],
-              percentVisible: slidePercent ,
+              percentVisible: slidePercent,
             ),
           ),
           new PagerIndicator(
@@ -148,8 +134,8 @@ class _SlidePageState extends State<SlidePage> with TickerProviderStateMixin {
             ),
           ),
           new PageDragger(
-            canDragLeftToRight: activeIndex > 0 ,
-            canDragRightToLeft: activeIndex < pages.length  ,
+            canDragLeftToRight: activeIndex > 0,
+            canDragRightToLeft: activeIndex < pages.length,
             slideUpdateStream: this.slideUpdateStream,
           )
         ],
