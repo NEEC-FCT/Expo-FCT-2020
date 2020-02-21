@@ -9,6 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -77,6 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+
+
 
     return Scaffold(
       body: Center(
