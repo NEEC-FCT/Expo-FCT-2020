@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:expo_fct_2020/Atividades.dart';
 import 'package:expo_fct_2020/Cursos.dart';
 import 'package:expo_fct_2020/Map.dart';
 import 'package:expo_fct_2020/Slider.dart';
@@ -55,6 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _pageChooser(int page, double width, double height) {
     switch (page) {
+
+      case 1:
+        return ListPage();
+        break;
+
       case 2:
         return Map();
         break;
