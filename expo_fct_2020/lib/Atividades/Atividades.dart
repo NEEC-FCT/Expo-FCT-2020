@@ -79,7 +79,7 @@ class _AtividadesPageState extends State<Atividades> {
             padding: EdgeInsets.fromLTRB(20, 30, 20, 30),
             child: Text('Departamentos',
                 style: TextStyle(fontSize: 26))),
-        Container(
+        Expanded(
           // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
           child: ListView.builder(
             scrollDirection: Axis.vertical,
@@ -104,11 +104,59 @@ class _AtividadesPageState extends State<Atividades> {
 List getDepartamentos() {
   return [
     Departamento(
+        title: "Departamento de Engenharia Electrotécnica",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
         title: "Departamento Engenharia do Ambiente",
         icon: 'assets/departamentos/enviroment.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciência dos Materiais",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Conservação e Restauro",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Ciências Sociais Aplicadas",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Ciências da Terra",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Ciências e Tecnologia da Biomassa",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Ciências da Vida",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Engenharia Civil",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Engenharia Mecânica e Industrial",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Física",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Química",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Matemática",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
+    Departamento(
+        title: "Departamento de Informática",
         icon: 'assets/departamentos/enviroment.png',
         level: "Beginner"),
   ];
