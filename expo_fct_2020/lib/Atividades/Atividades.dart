@@ -105,7 +105,7 @@ List getDepartamentos() {
   return [
     Departamento(
         title: "Departamento de Engenharia Electrotécnica",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/circuit.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento Engenharia do Ambiente",
@@ -113,51 +113,51 @@ List getDepartamentos() {
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciência dos Materiais",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/molecular.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Conservação e Restauro",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/museum.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciências Sociais Aplicadas",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/group.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciências da Terra",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/world.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciências e Tecnologia da Biomassa",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/biomass.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Ciências da Vida",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/human.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Engenharia Civil",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/america.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Engenharia Mecânica e Industrial",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/factory.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Física",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/space.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Química",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/lab.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Matemática",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/calculator.png',
         level: "Beginner"),
     Departamento(
         title: "Departamento de Informática",
-        icon: 'assets/departamentos/enviroment.png',
+        icon: 'assets/departamentos/laptop.png',
         level: "Beginner"),
   ];
 }
