@@ -69,17 +69,30 @@ class _AtividadesPageState extends State<Atividades> {
           ),
         );
 
-    final makeBody = Container(
-      // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: lessons.length,
-        itemBuilder: (BuildContext context, int index) {
-          return makeCard(lessons[index]);
-        },
-      ),
-    );
+    final makeBody =
+
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Container(
+            padding: EdgeInsets.fromLTRB(20, 30, 20, 30),
+            child: Text('Departamentos',
+                style: TextStyle(fontSize: 26))),
+        Container(
+          // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
+          child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: lessons.length,
+            itemBuilder: (BuildContext context, int index) {
+              return makeCard(lessons[index]);
+            },
+          ),
+        )
+      ],)
+
+    ;
 
     return Scaffold(
       backgroundColor: Colors.white,
