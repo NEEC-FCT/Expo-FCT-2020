@@ -1,6 +1,8 @@
 import 'package:expo_fct_2020/Atividades/Departamentos.dart';
 import 'package:flutter/material.dart';
 
+import 'ListaDepartamento.dart';
+
 class Atividades extends StatefulWidget {
   Atividades({Key key, this.title}) : super(key: key);
 
@@ -51,12 +53,11 @@ class _AtividadesPageState extends State<Atividades> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            //TODO Mostrar o menu
-            print("Mostrar menu");
-            /*  Navigator.push(
+            print("ID is: " + lesson.title);
+             Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailPage(lesson: lesson)));*/
+                builder: (context) => GridViewDemo(lesson: lesson)));
           },
         );
 
