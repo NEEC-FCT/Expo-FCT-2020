@@ -42,7 +42,7 @@ class _AtividadesPageState extends State<Atividades> {
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: new EdgeInsets.symmetric(horizontal: 0.0, vertical: 5.0),
                     child: Text(lesson.level,
                         style: TextStyle(color: Colors.white))),
               )
@@ -104,60 +104,74 @@ class _AtividadesPageState extends State<Atividades> {
 List getDepartamentos() {
   return [
     Departamento(
+        id:0,
         title: "Departamento de Engenharia Electrotécnica",
         icon: 'assets/departamentos/circuit.png',
-        level: "Beginner"),
+        level: "Edifício X"),
     Departamento(
+        id:1,
         title: "Departamento Engenharia do Ambiente",
         icon: 'assets/departamentos/enviroment.png',
-        level: "Beginner"),
+        level: "Edifício Departamental"),
     Departamento(
+        id:2,
         title: "Departamento de Ciência dos Materiais",
         icon: 'assets/departamentos/molecular.png',
-        level: "Beginner"),
+        level: "Edifício Departamental"),
     Departamento(
+        id:3,
         title: "Departamento de Conservação e Restauro",
         icon: 'assets/departamentos/museum.png',
-        level: "Beginner"),
+        level: "Edifício Departamental"),
     Departamento(
+        id:4,
         title: "Departamento de Ciências Sociais Aplicadas",
         icon: 'assets/departamentos/group.png',
-        level: "Beginner"),
+        level: "Edifício VII"),
     Departamento(
+        id:5,
         title: "Departamento de Ciências da Terra",
         icon: 'assets/departamentos/world.png',
-        level: "Beginner"),
+        level: "Edifício VII"),
     Departamento(
+        id:6,
         title: "Departamento de Ciências e Tecnologia da Biomassa",
         icon: 'assets/departamentos/biomass.png',
-        level: "Beginner"),
+        level: "Edifício Departamental"),
     Departamento(
+        id:7,
         title: "Departamento de Ciências da Vida",
         icon: 'assets/departamentos/human.png',
-        level: "Beginner"),
+        level: "Edifício VII"),
     Departamento(
+        id:8,
         title: "Departamento de Engenharia Civil",
         icon: 'assets/departamentos/america.png',
-        level: "Beginner"),
+        level: "Edifício IX"),
     Departamento(
+        id:9,
         title: "Departamento de Engenharia Mecânica e Industrial",
         icon: 'assets/departamentos/factory.png',
-        level: "Beginner"),
+        level: "Edifício VIII"),
     Departamento(
+        id:10,
         title: "Departamento de Física",
         icon: 'assets/departamentos/space.png',
-        level: "Beginner"),
+        level: "Edifício I"),
     Departamento(
+        id:11,
         title: "Departamento de Química",
         icon: 'assets/departamentos/lab.png',
-        level: "Beginner"),
+        level: "Edifício Departamental"),
     Departamento(
+        id:12,
         title: "Departamento de Matemática",
         icon: 'assets/departamentos/calculator.png',
-        level: "Beginner"),
+        level: "Edifício VII"),
     Departamento(
+        id:13,
         title: "Departamento de Informática",
         icon: 'assets/departamentos/laptop.png',
-        level: "Beginner"),
+        level: "Edifício II"),
   ];
 }
