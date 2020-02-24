@@ -1,5 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:expo_fct_2020/Atividades.dart';
+import 'package:expo_fct_2020/Atividades/Atividades.dart';
 import 'package:expo_fct_2020/Cursos.dart';
 import 'package:expo_fct_2020/Map.dart';
 import 'package:expo_fct_2020/Slider.dart';
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (page) {
 
       case 1:
-        return ListPage();
+        return Atividades();
         break;
 
       case 2:

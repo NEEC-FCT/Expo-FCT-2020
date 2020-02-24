@@ -1,10 +1,10 @@
-class Lesson {
+class Departamento {
   String title;
   String level;
   double indicatorValue;
   int price;
   String content;
 
-  Lesson(
+  Departamento(
       {this.title, this.level, this.indicatorValue, this.price, this.content});
 }
