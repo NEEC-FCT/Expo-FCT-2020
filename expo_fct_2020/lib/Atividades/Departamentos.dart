@@ -1,10 +1,11 @@
+import 'package:flutter/src/widgets/icon_data.dart';
+
 class Departamento {
   String title;
+  String icon;
   String level;
-  double indicatorValue;
-  int price;
   String content;
 
   Departamento(
-      {this.title, this.level, this.indicatorValue, this.price, this.content});
+      {this.title, this.level, this.icon});
 }

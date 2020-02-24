@@ -53,6 +53,7 @@ flutter:
     - assets/mountain.png
     - assets/plane.png
     - assets/world.png
+    - assets/departamentos/
 
   fonts:
     - family: FlamanteRoma

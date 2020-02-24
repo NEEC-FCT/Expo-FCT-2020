@@ -15,7 +15,7 @@ class _AtividadesPageState extends State<Atividades> {
 
   @override
   void initState() {
-    lessons = getLessons();
+    lessons = getDepartamentos();
     super.initState();
   }
 
@@ -29,7 +29,7 @@ class _AtividadesPageState extends State<Atividades> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
-            child: Icon(Icons.autorenew, color: Colors.white),
+            child: Image.asset( lesson.icon),
           ),
           title: Text(
             lesson.title,
@@ -39,15 +39,6 @@ class _AtividadesPageState extends State<Atividades> {
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: lesson.indicatorValue,
-                        valueColor: AlwaysStoppedAnimation(Colors.green)),
-                  )),
               Expanded(
                 flex: 4,
                 child: Padding(
@@ -91,27 +82,21 @@ class _AtividadesPageState extends State<Atividades> {
     );
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+      backgroundColor: Colors.white,
       body: makeBody,
     );
   }
 }
 
-List getLessons() {
+List getDepartamentos() {
   return [
     Departamento(
-        title: "Introduction to Driving",
-        level: "Beginner",
-        indicatorValue: 0.33,
-        price: 20,
-        content:
-            "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
+        title: "Departamento Engenharia do Ambiente",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
     Departamento(
-        title: "Observation at Junctions",
-        level: "Beginner",
-        indicatorValue: 0.33,
-        price: 50,
-        content:
-            "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
+        title: "Departamento de Ciência dos Materiais",
+        icon: 'assets/departamentos/enviroment.png',
+        level: "Beginner"),
   ];
 }
