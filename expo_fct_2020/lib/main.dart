@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'Percursos/PercursosLander.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -63,6 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
       case 2:
         return Map();
+        break;
+
+      case 3:
+        return IconTextTab();
         break;
 
       case 4:
