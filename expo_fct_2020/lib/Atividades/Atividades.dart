@@ -31,7 +31,7 @@ class _AtividadesPageState extends State<Atividades> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
-            child: Image.asset( lesson.icon),
+            child: Image.asset(lesson.icon),
           ),
           title: Text(
             lesson.title,
@@ -44,7 +44,8 @@ class _AtividadesPageState extends State<Atividades> {
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: new EdgeInsets.symmetric(horizontal: 0.0, vertical: 5.0),
+                    padding: new EdgeInsets.symmetric(
+                        horizontal: 0.0, vertical: 5.0),
                     child: Text(lesson.level,
                         style: TextStyle(color: Colors.white))),
               )
@@ -54,10 +55,10 @@ class _AtividadesPageState extends State<Atividades> {
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
             print("ID is: " + lesson.title);
-             Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => GridViewDemo(lesson: lesson)));
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GridViewDemo(lesson: lesson)));
           },
         );
 
@@ -70,16 +71,13 @@ class _AtividadesPageState extends State<Atividades> {
           ),
         );
 
-    final makeBody =
-
-    Column(
+    final makeBody = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Container(
             padding: EdgeInsets.fromLTRB(20, 30, 20, 30),
-            child: Text('Departamentos',
-                style: TextStyle(fontSize: 26))),
+            child: Text('Departamentos', style: TextStyle(fontSize: 26))),
         Expanded(
           // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
           child: ListView.builder(
@@ -91,9 +89,8 @@ class _AtividadesPageState extends State<Atividades> {
             },
           ),
         )
-      ],)
-
-    ;
+      ],
+    );
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -105,72 +102,72 @@ class _AtividadesPageState extends State<Atividades> {
 List getDepartamentos() {
   return [
     Departamento(
-        id:0,
+        id: 0,
         title: "Departamento de Engenharia Electrotécnica",
         icon: 'assets/departamentos/circuit.png',
         level: "Edifício X"),
     Departamento(
-        id:1,
+        id: 1,
         title: "Departamento Engenharia do Ambiente",
         icon: 'assets/departamentos/enviroment.png',
         level: "Edifício Departamental"),
     Departamento(
-        id:2,
+        id: 2,
         title: "Departamento de Ciência dos Materiais",
         icon: 'assets/departamentos/molecular.png',
         level: "Edifício Departamental"),
     Departamento(
-        id:3,
+        id: 3,
         title: "Departamento de Conservação e Restauro",
         icon: 'assets/departamentos/museum.png',
         level: "Edifício Departamental"),
     Departamento(
-        id:4,
+        id: 4,
         title: "Departamento de Ciências Sociais Aplicadas",
         icon: 'assets/departamentos/group.png',
         level: "Edifício VII"),
     Departamento(
-        id:5,
+        id: 5,
         title: "Departamento de Ciências da Terra",
         icon: 'assets/departamentos/world.png',
         level: "Edifício VII"),
     Departamento(
-        id:6,
+        id: 6,
         title: "Departamento de Ciências e Tecnologia da Biomassa",
         icon: 'assets/departamentos/biomass.png',
         level: "Edifício Departamental"),
     Departamento(
-        id:7,
+        id: 7,
         title: "Departamento de Ciências da Vida",
         icon: 'assets/departamentos/human.png',
         level: "Edifício VII"),
     Departamento(
-        id:8,
+        id: 8,
         title: "Departamento de Engenharia Civil",
         icon: 'assets/departamentos/america.png',
         level: "Edifício IX"),
     Departamento(
-        id:9,
+        id: 9,
         title: "Departamento de Engenharia Mecânica e Industrial",
         icon: 'assets/departamentos/factory.png',
         level: "Edifício VIII"),
     Departamento(
-        id:10,
+        id: 10,
         title: "Departamento de Física",
         icon: 'assets/departamentos/space.png',
         level: "Edifício I"),
     Departamento(
-        id:11,
+        id: 11,
         title: "Departamento de Química",
         icon: 'assets/departamentos/lab.png',
         level: "Edifício Departamental"),
     Departamento(
-        id:12,
+        id: 12,
         title: "Departamento de Matemática",
         icon: 'assets/departamentos/calculator.png',
         level: "Edifício VII"),
     Departamento(
-        id:13,
+        id: 13,
         title: "Departamento de Informática",
         icon: 'assets/departamentos/laptop.png',
         level: "Edifício II"),

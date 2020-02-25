@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:expo_fct_2020/Atividades/Atividade.dart';
 import 'package:http/http.dart' as http;
 
-
 class Services {
   static const String url =
       "http://jortec18app.neec-fct.com/jortec2020/Patrocinios.json";

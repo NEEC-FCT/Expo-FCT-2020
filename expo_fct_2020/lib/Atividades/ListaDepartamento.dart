@@ -11,8 +11,6 @@ import 'DetalhasAtividade.dart';
 import 'GridDetails.dart';
 import 'Services.dart';
 
-
-
 class GridViewDemo extends StatefulWidget {
   GridViewDemo({Departamento lesson}) : super();
 
@@ -46,7 +44,7 @@ class GridViewDemoState extends State<GridViewDemo> {
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 4.0,
         children: snapshot.data.map(
-              (album) {
+          (album) {
             return GestureDetector(
               child: GridTile(
                 child: AtividadeCell(album),
@@ -90,8 +88,7 @@ class GridViewDemoState extends State<GridViewDemo> {
         children: <Widget>[
           Container(
               padding: EdgeInsets.fromLTRB(20, 30, 20, 30),
-              child: Text('Atividades',
-                  style: TextStyle(fontSize: 26))),
+              child: Text('Atividades', style: TextStyle(fontSize: 26))),
           Flexible(
             flex: 8, // 20%
             child: FutureBuilder<List<Atividade>>(

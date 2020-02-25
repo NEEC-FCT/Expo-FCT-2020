@@ -1,7 +1,6 @@
 import 'package:expo_fct_2020/Atividades/Atividade.dart';
 import 'package:flutter/material.dart';
 
-
 class AtividadeCell extends StatelessWidget {
   const AtividadeCell(this.album);
 

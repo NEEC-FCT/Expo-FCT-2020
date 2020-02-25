@@ -5,6 +5,5 @@ class Departamento {
   String level;
   String content;
 
-  Departamento(
-      {this.id ,this.title, this.level, this.icon});
+  Departamento({this.id, this.title, this.level, this.icon});
 }

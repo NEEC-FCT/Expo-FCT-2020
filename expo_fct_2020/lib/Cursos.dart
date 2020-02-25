@@ -30,20 +30,18 @@ class _CursosState extends State<Cursos> {
           children: [
             Expanded(
                 child: WebView(
-              initialUrl: 'https://expofct.neec-fct.com/cursos/',
-              javascriptMode: JavascriptMode.unrestricted,
+                    initialUrl: 'https://expofct.neec-fct.com/cursos/',
+                    javascriptMode: JavascriptMode.unrestricted,
                     navigationDelegate: (NavigationRequest request) {
                       print(request.url.toString());
                       _launchURL(request.url);
                       return NavigationDecision.prevent;
-                    }
-            )),
+                    })),
           ],
         ),
       ),
     );
   }
-
 
   _launchURL(String url) async {
     if (await canLaunch(url)) {
