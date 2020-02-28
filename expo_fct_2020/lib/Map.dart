@@ -225,7 +225,7 @@ class _MapPageState extends State<Map> {
 
         _myController.loadUrl("javascript:(function() { " +
             "document.getElementsByClassName('yePe5c-haAclf yePe5c-HzV7m yePe5c-purZT')[0].style.visibility='hidden'; } )()");
-        
+
 
       },
     );
