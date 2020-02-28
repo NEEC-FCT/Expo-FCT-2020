@@ -214,10 +214,18 @@ class _MapPageState extends State<Map> {
       },
       onPageFinished: (url) {
 
-        //TODO - Meneses vê isto sff
+        _myController.loadUrl("javascript:(function() { " +
+           "document.getElementById('gbr').style.display='none'; } )()");
+        _myController.loadUrl("javascript:(function() { " +
+            "document.getElementById('watermark').style.display='none'; } )()");
+        _myController.loadUrl("javascript:(function() { " +
+            "document.getElementsByClassName('mU4ghb-N4imRe-yePe5c N4imRe-yePe5c')[0].style.visibility='hidden'; } )()");
+        _myController.loadUrl("javascript:(function() { " +
+            "document.getElementsByClassName('nJjxad-bMcfAe-haAclf nJjxad-HzV7m nJjxad-bMcfAe-hJDwNd')[0].style.visibility='hidden'; } )()");
 
         _myController.loadUrl("javascript:(function() { " +
-           "document.getElementById('gbr').style.display='none'; document.getElementsByClassName('nJjxad-bMcfAe-haAclf nJjxad-HzV7m nJjxad-bMcfAe-hJDwNd').style.display='none'; } )()");
+            "document.getElementsByClassName('yePe5c-haAclf yePe5c-HzV7m yePe5c-purZT')[0].style.visibility='hidden'; } )()");
+        
 
       },
     );
