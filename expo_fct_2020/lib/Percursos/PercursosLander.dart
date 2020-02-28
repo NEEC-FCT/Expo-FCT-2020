@@ -58,14 +58,20 @@ class IconTextTab extends StatelessWidget {
                   new Text(
                     "Economia circular, Biotecnologia e Sustentabilidade",
                     textAlign: TextAlign.center,
-                    style: textStyle(),
+                    style: TextStyle(color: Colors.white, fontSize: 20.0),
                   ),
                   Spacer(),
 
                   new Text(
                     "A Economia Circular assenta na redução, reutilização, recuperação e reciclagem de materiais e energia, evitando o desperdício de recursos e por isso com impacto positivo no Planeta. A Biotecnologia faz a interação entre a biologia e a tecnologia, com aplicação na indústria de produção de alimentos processados, de fármacos ou no controlo de qualidade. Estes conceitos e modelos são fundamentais para a sustentabilidade do Planeta, contribuindo para a satisfação das nossas necessidades no presente sem comprometer a capacidade de as gerações futuras satisfazerem as suas próprias necessidades.",
 
-                    style: TextStyle(color: Colors.white, fontSize: 15.0),
+                    style: TextStyle(color: Colors.white, fontSize: 14.0),
+                  ),
+                  Spacer(),
+                  Image.asset(
+                    'assets/mapademo.PNG',
+                    height: 200,
+                  //  width: 100,
                   ),
                   Spacer(),
                   Container(
