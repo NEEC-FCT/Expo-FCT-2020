@@ -1,5 +1,5 @@
+import 'package:expo_fct_2020/Percursos/Percurso1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class IconTextTab extends StatelessWidget {
   @override
@@ -48,48 +48,7 @@ class IconTextTab extends StatelessWidget {
         ),
         body: new TabBarView(
           children: <Widget>[
-            new Container(
-              color: Colors.deepOrangeAccent,
-              child:
-                  //TODO estrair ficheiro independente
-                  Column(
-                children: <Widget>[
-                  Spacer(),
-                  new Text(
-                    "Economia circular, Biotecnologia e Sustentabilidade",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  ),
-                  Spacer(),
-                  new Text(
-                    "A Economia Circular assenta na redução, reutilização, recuperação e reciclagem de materiais e energia, evitando o desperdício de recursos e por isso com impacto positivo no Planeta. A Biotecnologia faz a interação entre a biologia e a tecnologia, com aplicação na indústria de produção de alimentos processados, de fármacos ou no controlo de qualidade. Estes conceitos e modelos são fundamentais para a sustentabilidade do Planeta, contribuindo para a satisfação das nossas necessidades no presente sem comprometer a capacidade de as gerações futuras satisfazerem as suas próprias necessidades.",
-                    style: TextStyle(color: Colors.white, fontSize: 14.0),
-                  ),
-                  Spacer(),
-                  Image.asset(
-                    'assets/mapademo.PNG',
-                    height: 200,
-                    //  width: 100,
-                  ),
-                  Spacer(),
-                  Container(
-                    height: 150,
-                    child: new Swiper(
-                      itemBuilder: (BuildContext context, int index) {
-                        return new Image.network(
-                          "http://via.placeholder.com/288x188",
-                          fit: BoxFit.fill,
-                        );
-                      },
-                      itemCount: 10,
-                      viewportFraction: 0.8,
-                      scale: 0.9,
-                    ),
-                  ),
-                  Spacer(),
-                ],
-              ),
-            ),
+            Percurso1(context),
             new Container(
               color: Colors.blueGrey,
               child: new Center(
