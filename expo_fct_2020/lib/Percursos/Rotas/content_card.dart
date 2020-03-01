@@ -2,7 +2,6 @@
 import 'package:expo_fct_2020/Percursos/Rotas/price_tab/price_tab.dart';
 import 'package:flutter/material.dart';
 
-import 'multicity_input.dart';
 
 class ContentCard extends StatefulWidget {
   @override

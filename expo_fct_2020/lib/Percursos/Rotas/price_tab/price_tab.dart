@@ -1,8 +1,5 @@
 import 'dart:async';
-
-import 'package:expo_fct_2020/Percursos/Rotas/ticket_page/tickets_page.dart';
 import 'package:flutter/material.dart';
-
 import '../fade_route.dart';
 import 'animated_dot.dart';
 import 'animated_plane_icon.dart';
@@ -153,9 +150,9 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       child: ScaleTransition(
         scale: _fabAnimation,
         child: FloatingActionButton(
-          onPressed: () => Navigator
-              .of(context)
-              .push(FadeRoute(builder: (context) => TicketsPage())),
+          onPressed: () =>
+              //TODO - Voltar a tras ??
+              print("Voltar a trar"),
           child: Icon(Icons.check, size: 36.0),
         ),
       ),

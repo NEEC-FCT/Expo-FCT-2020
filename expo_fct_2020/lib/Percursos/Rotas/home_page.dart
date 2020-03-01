@@ -18,7 +18,6 @@ class HomePage extends StatelessWidget {
                   top: MediaQuery.of(context).padding.top + 40.0),
               child: new Column(
                 children: <Widget>[
-                  _buildButtonsRow(),
                   Expanded(child: ContentCard()),
                 ],
               ),
@@ -29,16 +28,4 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildButtonsRow() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: <Widget>[
-          new RoundedButton(text: "ONE WAY"),
-          new RoundedButton(text: "ROUND"),
-          new RoundedButton(text: "MULTICITY", selected: true),
-        ],
-      ),
-    );
-  }
 }
