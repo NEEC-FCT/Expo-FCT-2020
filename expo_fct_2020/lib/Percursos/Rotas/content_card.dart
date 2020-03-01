@@ -27,7 +27,7 @@ class _ContentCardState extends State<ContentCard> {
             );
           },
         ),
-        length: 3,
+        length: 2,
       ),
     );
   }
@@ -35,22 +35,11 @@ class _ContentCardState extends State<ContentCard> {
   Widget _buildTabBar({bool showFirstOption}) {
     return Stack(
       children: <Widget>[
-        new Positioned.fill(
-          top: null,
-          child: new Container(
+        new Container(
             height: 2.0,
             color: new Color(0xFFEEEEEE),
           ),
-        ),
-        new TabBar(
-          tabs: [
-            Tab(text:  "Price"),
-            Tab(text:  "Duration"),
-            Tab(text:  "Stops"),
-          ],
-          labelColor: Colors.black,
-          unselectedLabelColor: Colors.grey,
-        ),
+        
       ],
     );
   }
