@@ -1,5 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:expo_fct_2020/Atividades/Atividades.dart';
+import 'package:expo_fct_2020/Atividades/ListaDepartamento.dart';
 import 'package:expo_fct_2020/Cursos.dart';
 import 'package:expo_fct_2020/Map.dart';
 import 'package:expo_fct_2020/Slider.dart';
@@ -34,7 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentIndex = 2;
+  static int currentIndex = 2;
+  static bool change = false;
 
   Future<Null> getSharedPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -45,16 +47,41 @@ class _MyHomePageState extends State<MyHomePage> {
         MaterialPageRoute(builder: (context) => Slide()),
       );
     }
+    if(prefs.containsKey("atividades")){
+      setState(() {
+        change = true;
+        _showPage = GridViewDemo();
+      });
+      print("Recebi intent para atividades");
+      prefs.remove("atividades");
+    }
   }
+
+
+
+  //create all the pages
+  Widget _showPage;
 
   @override
   void initState() {
     super.initState();
     getSharedPrefs();
+    _showPage =  getWidget();
   }
 
-  //create all the pages
-  Widget _showPage = Map();
+  static Widget getWidget(){
+
+    if(change){
+      currentIndex = 1;
+      print("Ir para atividades");
+      return GridViewDemo();
+    }
+    else{
+      return Map();
+
+    }
+
+  }
 
   Widget _pageChooser(int page, double width, double height) {
     switch (page) {

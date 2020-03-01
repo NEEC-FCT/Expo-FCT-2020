@@ -1,6 +1,7 @@
 import 'package:expo_fct_2020/Atividades/Departamentos.dart';
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import '../main.dart';
 import 'ListaDepartamento.dart';
 
 class Atividades extends StatefulWidget {
@@ -20,6 +21,19 @@ class _AtividadesPageState extends State<Atividades> {
     lessons = getDepartamentos();
     super.initState();
   }
+
+  void onDonePress(int id) async {
+    // Do what you want
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("atividades", id);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyApp()),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +69,13 @@ class _AtividadesPageState extends State<Atividades> {
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
             print("ID is: " + lesson.title);
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => GridViewDemo(lesson: lesson)));
+
+            onDonePress( lesson.id);
+
+
           },
         );
+
 
     Card makeCard(Departamento lesson) => Card(
           elevation: 8.0,
@@ -98,6 +113,9 @@ class _AtividadesPageState extends State<Atividades> {
     );
   }
 }
+
+
+
 
 List getDepartamentos() {
   return [

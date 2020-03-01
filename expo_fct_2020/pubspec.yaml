@@ -54,6 +54,7 @@ flutter:
     - assets/mapademo.PNG
     - assets/calendar.png
     - assets/home.png
+    - assets/no_image.png
     - assets/house.png
     - assets/mountain.png
     - assets/plane.png
