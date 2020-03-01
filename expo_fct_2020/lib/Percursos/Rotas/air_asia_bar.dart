@@ -24,7 +24,7 @@ class AirAsiaBar extends StatelessWidget {
           elevation: 0.0,
           centerTitle: true,
           title: new Text(
-            "AirAsia",
+            "Percurso 1",
             style: TextStyle(
                 fontFamily: 'NothingYouCouldDo', fontWeight: FontWeight.bold),
           ),

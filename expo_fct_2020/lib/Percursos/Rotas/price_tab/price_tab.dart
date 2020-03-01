@@ -151,8 +151,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         scale: _fabAnimation,
         child: FloatingActionButton(
           onPressed: () =>
-              //TODO - Voltar a tras ??
-              print("Voltar a trar"),
+              Navigator.pop(context),
           child: Icon(Icons.check, size: 36.0),
         ),
       ),
