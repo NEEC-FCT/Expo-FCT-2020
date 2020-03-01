@@ -10,7 +10,6 @@ class ContentCard extends StatefulWidget {
 
 class _ContentCardState extends State<ContentCard> {
   bool showInput = false;
-  bool showInputTabOptions = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +44,9 @@ class _ContentCardState extends State<ContentCard> {
         ),
         new TabBar(
           tabs: [
-            Tab(text: showInputTabOptions ? "Flight" : "Price"),
-            Tab(text: showInputTabOptions ? "Train" : "Duration"),
-            Tab(text: showInputTabOptions ? "Bus" : "Stops"),
+            Tab(text:  "Price"),
+            Tab(text:  "Duration"),
+            Tab(text:  "Stops"),
           ],
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
@@ -67,7 +66,7 @@ class _ContentCardState extends State<ContentCard> {
             child:  PriceTab(
                     height: viewportConstraints.maxHeight - 48.0,
                     onPlaneFlightStart: () =>
-                        setState(() => showInputTabOptions = false),
+                       print("Anim começõu"),
                   ),
           ),
         ),
