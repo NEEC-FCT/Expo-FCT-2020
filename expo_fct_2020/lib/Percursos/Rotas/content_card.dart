@@ -39,7 +39,7 @@ class _ContentCardState extends State<ContentCard> {
             height: 2.0,
             color: new Color(0xFFEEEEEE),
           ),
-        
+
       ],
     );
   }

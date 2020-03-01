@@ -21,10 +21,18 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   final double _initialPlanePaddingBottom = 16.0;
   final double _minPlanePaddingTop = 16.0;
   final List<FlightStop> _flightStops = [
-    FlightStop("JFK", "ORY", "JUN 05", "6h 25m", "\$851", "9:26 am - 3:43 pm"),
-    FlightStop("MRG", "FTB", "JUN 20", "6h 25m", "\$532", "9:26 am - 3:43 pm"),
-    FlightStop("ERT", "TVS", "JUN 20", "6h 25m", "\$718", "9:26 am - 3:43 pm"),
-    FlightStop("KKR", "RTY", "JUN 20", "6h 25m", "\$663", "9:26 am - 3:43 pm"),
+    FlightStop("", "",  "DEC                          ", "Cidade Sustentável"),
+    FlightStop("", "",  "DF                            ", "Laser Solar"),
+    FlightStop("", "",  "DCTB                         ", "Biorefinarias de resíduos"),
+    FlightStop("", "",  "DCTB                          ", "\“Alimentos versus Antibióticos\”"),
+    FlightStop("", "",  "DCT                           ", "Riqueza hidromineral de Portugal"),
+    FlightStop("", "",  "DCT                           ", "Vem explorar os efeitos da poluição no solo e em ambiente subterrâneo"),
+    FlightStop("", "",  "DQ                            ", "À Descoberta da Estrutura 3D das Proteínas!"),
+    FlightStop("", "",  "DQ                            ", "Produção de biopolímeros"),
+    FlightStop("", "",  "DCM                           ", "Materiais e Sustentabilidade"),
+    FlightStop("", "",  "DCM                           ", "Tecnologias Wearable sustentáveis"),
+    FlightStop("", "",  "DCV                           ", "Belos Micróbios"),
+
   ];
   final List<GlobalKey<FlightStopCardState>> _stopKeys = [];
 
@@ -34,7 +42,6 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   AnimationController _fabAnimationController;
   Animation _planeSizeAnimation;
   Animation _planeTravelAnimation;
-  Animation _fabAnimation;
 
   List<Animation<double>> _dotPositions = [];
 
@@ -81,7 +88,6 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         children: <Widget>[_buildPlane()]
           ..addAll(_flightStops.map(_buildStopCard))
           ..addAll(_flightStops.map(_mapFlightStopToDot))
-          ..add(_buildFab()),
       ),
     );
   }
@@ -144,19 +150,6 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildFab() {
-    return Positioned(
-      bottom: 16.0,
-      child: ScaleTransition(
-        scale: _fabAnimation,
-        child: FloatingActionButton(
-          onPressed: () =>
-              Navigator.pop(context),
-          child: Icon(Icons.check, size: 36.0),
-        ),
-      ),
-    );
-  }
 
   _initSizeAnimations() {
     _planeSizeAnimationController = AnimationController(
@@ -241,8 +234,6 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   void _initFabAnimationController() {
     _fabAnimationController = new AnimationController(
         vsync: this, duration: Duration(milliseconds: 300));
-    _fabAnimation = new CurvedAnimation(
-        parent: _fabAnimationController, curve: Curves.easeOut);
   }
 
   _animateFab() {

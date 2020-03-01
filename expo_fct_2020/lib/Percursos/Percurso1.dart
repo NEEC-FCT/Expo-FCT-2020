@@ -1,6 +1,5 @@
 import 'package:expandable/expandable.dart';
 import 'package:expo_fct_2020/Percursos/Rotas/home_page.dart';
-import 'package:expo_fct_2020/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -18,7 +17,37 @@ Widget Percurso1(BuildContext context) {
     switch(index){
 
       case 0:
-
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEC/foto_7copy.jpg";
+        break;
+      case 1:
+      return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DF/untitled_1.png";
+      break;
+      case 2:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/biorefinarias_de_residuos.png";
+        break;
+      case 3:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DCTB/alimentos_versus_antibioticos.jpg";
+        break;
+      case 4:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DCT/riqueza_hidromineral_dct_ha.jpg";
+        break;
+      case 5:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/p1_sofia_barbosa.jpg";
+        break;
+      case 6:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/p1_act1_estrutura_proteinas.png";
+        break;
+      case 7:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/p1_act2_producao_biopolimeros.png";
+        break;
+      case 8:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/p1_dcm_materiais-e-sustentabilidade.jpg";
+        break;
+      case 9:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/p1_dcm_tecnologias-wearable-sustentaveis.jpg";
+        break;
+      case 10:
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/belosmicrobios.png";
         break;
       default:
         return "";
@@ -73,12 +102,15 @@ Widget Percurso1(BuildContext context) {
         SizedBox(
           width: width * 0.90,
           child: new RaisedButton(
+
+            color: Colors.blue,
             onPressed: () =>
                 Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             ),
-            child: new Text("Começar"),
+            child: new Text("Começar"  ,
+                style: TextStyle(color: Colors.white, fontSize: 18)),
           ),
         ),
         Spacer(),
@@ -95,11 +127,11 @@ Widget Percurso1(BuildContext context) {
           child: new Swiper(
             itemBuilder: (BuildContext context, int index) {
               return new Image.network(
-                "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEC/foto_7copy.jpg",
+                returnURL(index),
                 fit: BoxFit.fill,
               );
             },
-            itemCount: 10,
+            itemCount: 11,
             viewportFraction: 0.8,
             scale: 0.9,
           ),

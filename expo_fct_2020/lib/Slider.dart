@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:expo_fct_2020/main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'Animation_Gesture/page_dragger.dart';
 import 'Animation_Gesture/page_reveal.dart';
 import 'UI/pager_indicator.dart';

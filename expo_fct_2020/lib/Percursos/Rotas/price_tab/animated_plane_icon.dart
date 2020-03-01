@@ -8,7 +8,7 @@ class AnimatedPlaneIcon extends AnimatedWidget {
   Widget build(BuildContext context) {
     Animation<double> animation = super.listenable;
     return Icon(
-      Icons.airplanemode_active,
+      Icons.navigation,
       color: Colors.red,
       size: animation.value,
     );
