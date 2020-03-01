@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -12,14 +10,15 @@ class Map extends StatefulWidget {
 }
 
 class _MapPageState extends State<Map> {
-
   WebViewController _myController;
 
   @override
   void initState() {
     super.initState();
   }
-  double zoomVal=5.0;
+
+  double zoomVal = 5.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +30,6 @@ class _MapPageState extends State<Map> {
       ),
     );
   }
-
-
-
-
 
   Widget _buildContainer() {
     return Align(
@@ -50,21 +45,27 @@ class _MapPageState extends State<Map> {
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern"),
+                  40.738380,
+                  -73.988426,
+                  "Gramercy Tavern"),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin"),
+                  40.761421,
+                  -73.981667,
+                  "Le Bernardin"),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Blue Hill"),
+                  40.732128,
+                  -73.999619,
+                  "Blue Hill"),
             ),
           ],
         ),
@@ -72,11 +73,10 @@ class _MapPageState extends State<Map> {
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName) {
-    return  GestureDetector(
-      onTap: () {
-      },
-      child:Container(
+  Widget _boxes(String _image, double lat, double long, String restaurantName) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
         child: new FittedBox(
           child: Material(
               color: Colors.white,
@@ -95,16 +95,16 @@ class _MapPageState extends State<Map> {
                         fit: BoxFit.fill,
                         image: NetworkImage(_image),
                       ),
-                    ),),
+                    ),
+                  ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: myDetailsContainer1(restaurantName),
                     ),
                   ),
-
-                ],)
-          ),
+                ],
+              )),
         ),
       ),
     );
@@ -117,89 +117,90 @@ class _MapPageState extends State<Map> {
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
-                style: TextStyle(
-                    color: Color(0xff6200ee),
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold),
-              )),
+              child: Text(
+            restaurantName,
+            style: TextStyle(
+                color: Color(0xff6200ee),
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold),
+          )),
         ),
-        SizedBox(height:5.0),
+        SizedBox(height: 5.0),
         Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(
-                    child: Text(
-                      "4.1",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 18.0,
-                      ),
-                    )),
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 15.0,
-                  ),
-                ),
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 15.0,
-                  ),
-                ),
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 15.0,
-                  ),
-                ),
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 15.0,
-                  ),
-                ),
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidStarHalf,
-                    color: Colors.amber,
-                    size: 15.0,
-                  ),
-                ),
-                Container(
-                    child: Text(
-                      "(946)",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 18.0,
-                      ),
-                    )),
-              ],
-            )),
-        SizedBox(height:5.0),
-        Container(
-            child: Text(
-              "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+                child: Text(
+              "4.1",
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 18.0,
               ),
             )),
-        SizedBox(height:5.0),
+            Container(
+              child: Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 15.0,
+              ),
+            ),
+            Container(
+              child: Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 15.0,
+              ),
+            ),
+            Container(
+              child: Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 15.0,
+              ),
+            ),
+            Container(
+              child: Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 15.0,
+              ),
+            ),
+            Container(
+              child: Icon(
+                FontAwesomeIcons.solidStarHalf,
+                color: Colors.amber,
+                size: 15.0,
+              ),
+            ),
+            Container(
+                child: Text(
+              "(946)",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 18.0,
+              ),
+            )),
+          ],
+        )),
+        SizedBox(height: 5.0),
         Container(
             child: Text(
-              "Closed \u00B7 Opens 17:00 Thu",
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold),
-            )),
+          "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
+          style: TextStyle(
+            color: Colors.black54,
+            fontSize: 18.0,
+          ),
+        )),
+        SizedBox(height: 5.0),
+        Container(
+            child: Text(
+          "Closed \u00B7 Opens 17:00 Thu",
+          style: TextStyle(
+              color: Colors.black54,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold),
+        )),
       ],
     );
   }
@@ -207,15 +208,14 @@ class _MapPageState extends State<Map> {
   Widget _buildGoogleMap(BuildContext context) {
     return WebView(
       initialUrl:
-      'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
+          'https://www.google.com/maps/d/viewer?mid=1LC7hMeFmnZ8cj4XGiMAEBam7WHZZIn3k&ll=38.66073135349911%2C-9.205763350000097&z=17',
       javascriptMode: JavascriptMode.unrestricted,
       onWebViewCreated: (controller) {
         _myController = controller;
       },
       onPageFinished: (url) {
-
         _myController.loadUrl("javascript:(function() { " +
-           "document.getElementById('gbr').style.display='none'; } )()");
+            "document.getElementById('gbr').style.display='none'; } )()");
         _myController.loadUrl("javascript:(function() { " +
             "document.getElementById('watermark').style.display='none'; } )()");
         _myController.loadUrl("javascript:(function() { " +
@@ -225,12 +225,7 @@ class _MapPageState extends State<Map> {
 
         _myController.loadUrl("javascript:(function() { " +
             "document.getElementsByClassName('yePe5c-haAclf yePe5c-HzV7m yePe5c-purZT')[0].style.visibility='hidden'; } )()");
-
-
       },
     );
   }
-
-
 }
-

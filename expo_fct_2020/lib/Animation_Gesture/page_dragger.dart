@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+
 import 'package:expo_fct_2020/UI/pager_indicator.dart';
 import 'package:flutter/material.dart';
 

@@ -1,8 +1,8 @@
 import 'package:expo_fct_2020/Atividades/Departamentos.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../main.dart';
-import 'ListaDepartamento.dart';
 
 class Atividades extends StatefulWidget {
   Atividades({Key key, this.title}) : super(key: key);
@@ -33,7 +33,6 @@ class _AtividadesPageState extends State<Atividades> {
       MaterialPageRoute(builder: (context) => MyApp()),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -70,12 +69,9 @@ class _AtividadesPageState extends State<Atividades> {
           onTap: () {
             print("ID is: " + lesson.title);
 
-            onDonePress( lesson.id);
-
-
+            onDonePress(lesson.id);
           },
         );
-
 
     Card makeCard(Departamento lesson) => Card(
           elevation: 8.0,
@@ -113,9 +109,6 @@ class _AtividadesPageState extends State<Atividades> {
     );
   }
 }
-
-
-
 
 List getDepartamentos() {
   return [

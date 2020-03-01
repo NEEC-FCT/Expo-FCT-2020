@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         MaterialPageRoute(builder: (context) => Slide()),
       );
     }
-    if(prefs.containsKey("atividades")){
+    if (prefs.containsKey("atividades")) {
       setState(() {
         change = true;
         _showPage = GridViewDemo();
@@ -57,8 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-
-
   //create all the pages
   Widget _showPage;
 
@@ -66,21 +64,17 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     getSharedPrefs();
-    _showPage =  getWidget();
+    _showPage = getWidget();
   }
 
-  static Widget getWidget(){
-
-    if(change){
+  static Widget getWidget() {
+    if (change) {
       currentIndex = 1;
       print("Ir para atividades");
       return GridViewDemo();
-    }
-    else{
+    } else {
       return Map();
-
     }
-
   }
 
   Widget _pageChooser(int page, double width, double height) {
