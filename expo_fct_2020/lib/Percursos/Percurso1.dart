@@ -1,4 +1,6 @@
 import 'package:expandable/expandable.dart';
+import 'package:expo_fct_2020/Percursos/Rotas/home_page.dart';
+import 'package:expo_fct_2020/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -71,7 +73,11 @@ Widget Percurso1(BuildContext context) {
         SizedBox(
           width: width * 0.90,
           child: new RaisedButton(
-            onPressed: () => print("Button Pressed"),
+            onPressed: () =>
+                Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            ),
             child: new Text("Começar"),
           ),
         ),
