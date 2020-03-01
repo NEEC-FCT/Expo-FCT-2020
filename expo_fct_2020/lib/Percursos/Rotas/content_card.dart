@@ -9,7 +9,7 @@ class ContentCard extends StatefulWidget {
 }
 
 class _ContentCardState extends State<ContentCard> {
-  bool showInput = true;
+  bool showInput = false;
   bool showInputTabOptions = true;
 
   @override
@@ -64,9 +64,7 @@ class _ContentCardState extends State<ContentCard> {
             minHeight: viewportConstraints.maxHeight - 48.0,
           ),
           child: new IntrinsicHeight(
-            child: showInput
-                ? _buildMulticityTab()
-                : PriceTab(
+            child:  PriceTab(
                     height: viewportConstraints.maxHeight - 48.0,
                     onPlaneFlightStart: () =>
                         setState(() => showInputTabOptions = false),
@@ -77,18 +75,5 @@ class _ContentCardState extends State<ContentCard> {
     );
   }
 
-  Widget _buildMulticityTab() {
-    return Column(
-      children: <Widget>[
-        Expanded(child: Container()),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 16.0, top: 8.0),
-          child: FloatingActionButton(
-            onPressed: () => setState(() => showInput = false),
-            child: Icon(Icons.timeline, size: 36.0),
-          ),
-        ),
-      ],
-    );
-  }
+
 }
