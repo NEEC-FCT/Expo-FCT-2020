@@ -164,15 +164,15 @@ Widget Percurso1(BuildContext context) {
         Container(
           height: 200,
           child: new Swiper(
-            layout: SwiperLayout.STACK,
+            layout: SwiperLayout.DEFAULT,
             itemWidth: 200.0,
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: <Widget>[
                   Spacer(),
-
                   Container(
                     child: Text( returnText(index) ,
+                        textAlign: TextAlign.center ,
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.black,

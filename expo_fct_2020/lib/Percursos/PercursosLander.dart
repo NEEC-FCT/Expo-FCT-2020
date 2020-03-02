@@ -5,7 +5,7 @@ class IconTextTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     textStyle() {
-      return new TextStyle(color: Colors.white, fontSize: 30.0);
+      return new TextStyle(color: Colors.black, fontSize: 30.0);
     }
 
     return new DefaultTabController(
@@ -16,31 +16,31 @@ class IconTextTab extends StatelessWidget {
           bottom: new TabBar(
             tabs: <Widget>[
               new Tab(
-                icon: new Icon(Icons.airplanemode_active),
+                icon: new Icon(Icons.euro_symbol),
                 text: "1",
               ),
               new Tab(
-                icon: new Icon(Icons.map),
+                icon: new Icon(Icons.data_usage),
                 text: "2",
               ),
               new Tab(
-                icon: new Icon(Icons.person),
+                icon: new Icon(Icons.local_hospital),
                 text: "3",
               ),
               new Tab(
-                icon: new Icon(Icons.airplanemode_active),
+                icon: new Icon(Icons.android),
                 text: "4",
               ),
               new Tab(
-                icon: new Icon(Icons.airplanemode_active),
+                icon: new Icon(Icons.zoom_in),
                 text: "5",
               ),
               new Tab(
-                icon: new Icon(Icons.airplanemode_active),
+                icon: new Icon(Icons.account_balance),
                 text: "6",
               ),
               new Tab(
-                icon: new Icon(Icons.airplanemode_active),
+                icon: new Icon(Icons.security),
                 text: "7",
               ),
             ],
@@ -50,7 +50,7 @@ class IconTextTab extends StatelessWidget {
           children: <Widget>[
             Percurso1(context),
             new Container(
-              color: Colors.blueGrey,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   " Inovação Digital e Big Data",
@@ -59,7 +59,7 @@ class IconTextTab extends StatelessWidget {
               ),
             ),
             new Container(
-              color: Colors.teal,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   "Third",
@@ -68,7 +68,7 @@ class IconTextTab extends StatelessWidget {
               ),
             ),
             new Container(
-              color: Colors.teal,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   "Third",
@@ -77,7 +77,7 @@ class IconTextTab extends StatelessWidget {
               ),
             ),
             new Container(
-              color: Colors.teal,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   "Third",
@@ -86,7 +86,7 @@ class IconTextTab extends StatelessWidget {
               ),
             ),
             new Container(
-              color: Colors.teal,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   "Third",
@@ -95,7 +95,7 @@ class IconTextTab extends StatelessWidget {
               ),
             ),
             new Container(
-              color: Colors.teal,
+              color: Colors.white,
               child: new Center(
                 child: new Text(
                   "Third",
