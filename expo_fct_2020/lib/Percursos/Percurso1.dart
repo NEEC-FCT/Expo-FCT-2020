@@ -136,7 +136,7 @@ Widget Percurso1(BuildContext context) {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
         Image.asset(
           'assets/mapademo.PNG',
-          height: 130,
+       //   height: 130,
           width: width * 0.90,
         ),
         Spacer(),
