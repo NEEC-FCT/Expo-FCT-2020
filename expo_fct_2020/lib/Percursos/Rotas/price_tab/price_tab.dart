@@ -21,17 +21,17 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   final double _initialPlanePaddingBottom = 16.0;
   final double _minPlanePaddingTop = 16.0;
   final List<FlightStop> _flightStops = [
-    FlightStop("", "",  "DEC                          ", "Cidade Sustentável"),
-    FlightStop("", "",  "DF                            ", "Laser Solar"),
-    FlightStop("", "",  "DCTB                         ", "Biorefinarias de resíduos"),
-    FlightStop("", "",  "DCTB                          ", "\“Alimentos versus Antibióticos\”"),
-    FlightStop("", "",  "DCT                           ", "Riqueza hidromineral de Portugal"),
-    FlightStop("", "",  "DCT                           ", "Vem explorar os efeitos da poluição no solo e em ambiente subterrâneo"),
-    FlightStop("", "",  "DQ                            ", "À Descoberta da Estrutura 3D das Proteínas!"),
-    FlightStop("", "",  "DQ                            ", "Produção de biopolímeros"),
-    FlightStop("", "",  "DCM                           ", "Materiais e Sustentabilidade"),
-    FlightStop("", "",  "DCM                           ", "Tecnologias Wearable sustentáveis"),
-    FlightStop("", "",  "DCV                           ", "Belos Micróbios"),
+    FlightStop(  "DEC                          ", "Cidade Sustentável"),
+    FlightStop(  "DF                            ", "Laser Solar"),
+    FlightStop(  "DCTB                         ", "Biorefinarias de resíduos"),
+    FlightStop(  "DCTB                          ", "\“Alimentos versus Antibióticos\”"),
+    FlightStop(  "DCT                           ", "Riqueza hidromineral de Portugal"),
+    FlightStop(  "DCT                           ", "Vem explorar os efeitos da poluição no solo e em ambiente subterrâneo"),
+    FlightStop(  "DQ                            ", "À Descoberta da \nEstrutura 3D das Proteínas!"),
+    FlightStop(  "DQ                            ", "Produção de biopolímeros"),
+    FlightStop(  "DCM                           ", "Materiais e Sustentabilidade"),
+    FlightStop(  "DCM                           ", "Tecnologias Wearable sustentáveis"),
+    FlightStop(  "DCV                           ", "Belos Micróbios"),
 
   ];
   final List<GlobalKey<FlightStopCardState>> _stopKeys = [];

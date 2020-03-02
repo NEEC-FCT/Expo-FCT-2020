@@ -21,7 +21,6 @@ class FlightStopCardState extends State<FlightStopCard>
     with TickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _cardSizeAnimation;
-  Animation<double> _airportsPositionAnimation;
   Animation<double> _pricePositionAnimation;
   Animation<double> _fromToPositionAnimation;
   Animation<double> _lineAnimation;
@@ -34,9 +33,6 @@ class FlightStopCardState extends State<FlightStopCard>
     _cardSizeAnimation = new CurvedAnimation(
         parent: _animationController,
         curve: new Interval(0.0, 0.9, curve: new ElasticOutCurve(0.8)));
-    _airportsPositionAnimation = new CurvedAnimation(
-        parent: _animationController,
-        curve: new Interval(0.1, 1.0, curve: new ElasticOutCurve(0.95)));
     _pricePositionAnimation = new CurvedAnimation(
         parent: _animationController,
         curve: new Interval(0.0, 0.9, curve: new ElasticOutCurve(0.95)));
@@ -69,7 +65,6 @@ class FlightStopCardState extends State<FlightStopCard>
               children: <Widget>[
                 buildLine(),
                 buildCard(),
-                buildAirportNamesText(),
                 buildPriceText(),
                 buildFromToTimeText(),
               ],
@@ -85,21 +80,6 @@ class FlightStopCardState extends State<FlightStopCard>
     return maxWidth;
   }
 
-
-  Positioned buildAirportNamesText() {
-    double animationValue = _airportsPositionAnimation.value;
-    return Positioned(
-      top: getMarginTop(animationValue),
-      left: getMarginLeft(animationValue),
-      child: Text(
-        "${widget.flightStop.from} \u00B7 ${widget.flightStop.to}",
-        style: new TextStyle(
-          fontSize: 14.0*animationValue,
-          color: Colors.grey,
-        ),
-      ),
-    );
-  }
 
 
 
@@ -123,6 +103,7 @@ class FlightStopCardState extends State<FlightStopCard>
       bottom: getMarginBottom(animationValue),
       child: Text(
         "${widget.flightStop.fromToTime}",
+        textAlign: TextAlign.center,
         style: new TextStyle(
             fontSize: 12.0* animationValue, color: Colors.grey, fontWeight: FontWeight.w500,),
       ),

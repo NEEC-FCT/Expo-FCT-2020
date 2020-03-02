@@ -134,10 +134,17 @@ Widget Percurso1(BuildContext context) {
                     textAlign: TextAlign.start,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
-        Image.asset(
-          'assets/mapademo.PNG',
-       //   height: 130,
-          width: width * 0.90,
+        Material(
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset('assets/mapademo.PNG',
+                      width: 110.0,
+                      height: 110.0),
+                ),),
+            )
         ),
         Spacer(),
         SizedBox(
