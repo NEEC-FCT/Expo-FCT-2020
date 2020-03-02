@@ -12,6 +12,46 @@ String descricao =
 Widget Percurso1(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
 
+  String returnText(int index) {
+    switch (index) {
+      case 0:
+        return "Cidade Sustentável";
+        break;
+      case 1:
+        return "Laser Solar";
+        break;
+      case 2:
+        return "Biorefinarias de resíduos";
+        break;
+      case 3:
+        return "\“Alimentos versus Antibióticos\”";
+        break;
+      case 4:
+        return "Riqueza hidromineral de Portugal";
+        break;
+      case 5:
+        return "Vem explorar os efeitos da poluição no solo e em ambiente subterrâne";
+        break;
+      case 6:
+        return "À Descoberta da Estrutura 3D das Proteínas!";
+        break;
+      case 7:
+        return "Produção de biopolímeros";
+        break;
+      case 8:
+        return "Materiais e Sustentabilidade";
+        break;
+      case 9:
+        return "Tecnologias Wearable sustentáveis";
+        break;
+      case 10:
+        return "Belos Micróbios - vem conhecer uma coleção de culturas!";
+        break;
+      default:
+        return "";
+    }
+  }
+
   String returnURL(int index) {
     switch (index) {
       case 0:
@@ -96,8 +136,8 @@ Widget Percurso1(BuildContext context) {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
         Image.asset(
           'assets/mapademo.PNG',
-          height: 200,
-          //  width: 100,
+          height: 130,
+          width: width * 0.90,
         ),
         Spacer(),
         SizedBox(
@@ -122,17 +162,37 @@ Widget Percurso1(BuildContext context) {
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
         Container(
-          height: 150,
+          height: 200,
           child: new Swiper(
+            layout: SwiperLayout.STACK,
+            itemWidth: 200.0,
             itemBuilder: (BuildContext context, int index) {
-              return new Image.network(
-                returnURL(index),
-                fit: BoxFit.fill,
+              return Column(
+                children: <Widget>[
+                  Spacer(),
+
+                  Container(
+                    child: Text( returnText(index) ,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                        )),
+                  ),
+                  Spacer(),
+                  Center(
+                    child: Image.network(
+                      returnURL(index),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Spacer(),
+
+                ],
               );
             },
             itemCount: 11,
-            viewportFraction: 0.8,
-            scale: 0.9,
+            pagination: SwiperPagination(),
+            control: SwiperControl(),
           ),
         ),
         Spacer(),
