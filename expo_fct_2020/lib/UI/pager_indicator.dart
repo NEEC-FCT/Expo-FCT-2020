@@ -13,7 +13,7 @@ class PagerIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<PageBubble> bubbles = [];
-    for (var i = 0; i < viewModel.pages.length; ++i) {
+    for (var i = 0; i < viewModel.pages.length - 1 ; ++i) {
       final page = viewModel.pages[i];
 
       var percentActive;
