@@ -12,16 +12,14 @@ String descricao =
 Widget Percurso1(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
 
-
-  String returnURL(int index){
-    switch(index){
-
+  String returnURL(int index) {
+    switch (index) {
       case 0:
         return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEC/foto_7copy.jpg";
         break;
       case 1:
-      return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DF/untitled_1.png";
-      break;
+        return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DF/untitled_1.png";
+        break;
       case 2:
         return "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/Percurso%201/biorefinarias_de_residuos.png";
         break;
@@ -53,6 +51,7 @@ Widget Percurso1(BuildContext context) {
         return "";
     }
   }
+
   return new Container(
     color: Colors.white,
     child: Column(
@@ -65,25 +64,27 @@ Widget Percurso1(BuildContext context) {
                     textAlign: TextAlign.start,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
-        ExpandablePanel(
-          header: new Text(
-            "Economia circular, Biotecnologia e Sustentabilidade",
-            textAlign: TextAlign.justify,
-            style: TextStyle(color: Colors.black, fontSize: 16.0),
-          ),
-          collapsed: Text(
-            descricao,
-            softWrap: true,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          expanded: Text(
-            descricao,
-            softWrap: true,
-          ),
-          tapHeaderToExpand: true,
-          hasIcon: true,
-        ),
+        Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 0, 4),
+            child: ExpandablePanel(
+              header: new Text(
+                "Economia circular, Biotecnologia e Sustentabilidade",
+                textAlign: TextAlign.justify,
+                style: TextStyle(color: Colors.black, fontSize: 16.0),
+              ),
+              collapsed: Text(
+                descricao,
+                softWrap: true,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+              expanded: Text(
+                descricao,
+                softWrap: true,
+              ),
+              tapHeaderToExpand: true,
+              hasIcon: true,
+            )),
         Spacer(),
         Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
@@ -102,14 +103,12 @@ Widget Percurso1(BuildContext context) {
         SizedBox(
           width: width * 0.90,
           child: new RaisedButton(
-
             color: Colors.blue,
-            onPressed: () =>
-                Navigator.push(
+            onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             ),
-            child: new Text("Começar"  ,
+            child: new Text("Começar",
                 style: TextStyle(color: Colors.white, fontSize: 18)),
           ),
         ),
