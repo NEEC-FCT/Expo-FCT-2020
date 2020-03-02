@@ -51,8 +51,8 @@ class _SlidePageState extends State<SlidePage> with TickerProviderStateMixin {
 
     slideUpdateStream.stream.listen((SlideUpdate event) {
       setState(() {
-        if (nextPageIndex == endOfslider) {
-          nextPageIndex--;
+        if (nextPageIndex >= endOfslider) {
+          nextPageIndex = 2;
           print("Mostra o menu");
           onDonePress();
         } else {

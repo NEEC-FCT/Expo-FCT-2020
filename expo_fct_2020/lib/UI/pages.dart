@@ -19,7 +19,13 @@ final pages = [
     'Feels Like Home',
     'Enjoys your holidays! Dont forget to take a photo!',
     'assets/house.png',
-  ),
+  ),new PageViewModel(
+    const Color(0xFFFF682D),
+    'assets/home.png',
+    'Feels Like Home',
+    'Enjoys your holidays! Dont forget to take a photo!',
+    'assets/house.png',
+  )
 ];
 
 class Page extends StatelessWidget {
