@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:expo_fct_2020/Horario/Horario.dart';
 import 'package:expo_fct_2020/Atividades/Atividades.dart';
 import 'package:expo_fct_2020/Atividades/ListaDepartamento.dart';
 import 'package:expo_fct_2020/Cursos.dart';
@@ -79,6 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _pageChooser(int page, double width, double height) {
     switch (page) {
+      case 0:
+        return Horario();
+        break;
+
       case 1:
         return Atividades();
         break;
