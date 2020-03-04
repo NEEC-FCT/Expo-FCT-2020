@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Map extends StatefulWidget {
@@ -35,37 +34,50 @@ class _MapPageState extends State<Map> {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
-        height: 150.0,
+        margin: EdgeInsets.symmetric(vertical: 0.0),
+        height: 120.0,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            SizedBox(width: 10.0),
+            SizedBox(width: 5.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380,
-                  -73.988426,
-                  "Gramercy Tavern"),
+                  "assets/edificios/mateinf.jpg",
+                  "Edifício II",
+                  "Dep. de Materiais\nDep. de Informática"),
             ),
-            SizedBox(width: 10.0),
+            SizedBox(width: 5.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421,
-                  -73.981667,
-                  "Le Bernardin"),
+                  "assets/edificios/qui.jpg",
+                  "Edifício Departamental",
+                  "Dep. de Química"),
             ),
-            SizedBox(width: 10.0),
+            SizedBox(width: 5.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128,
-                  -73.999619,
-                  "Blue Hill"),
+                  "assets/edificios/eletro.jpg",
+                  "Edifício X",
+                  "Dep. de Electrotécnia"),
+            ),
+            SizedBox(width: 5.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "assets/edificios/mecege.jpg",
+                  "Edifício VIII",
+                  "Dep. de Mecânica e\nGestão Industrial"),
+            ),
+            SizedBox(width: 5.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "assets/edificios/biblio.jpg",
+                  "Biblioteca",
+                  "Biblioteca"),
             ),
           ],
         ),
@@ -73,34 +85,34 @@ class _MapPageState extends State<Map> {
     );
   }
 
-  Widget _boxes(String _image, double lat, double long, String restaurantName) {
+  Widget _boxes(String _image, String buildingName, String departmentName) {
     return GestureDetector(
       onTap: () {},
       child: Container(
         child: new FittedBox(
           child: Material(
               color: Colors.white,
-              elevation: 14.0,
+              elevation: 8.0,
               borderRadius: BorderRadius.circular(24.0),
-              shadowColor: Color(0x802196F3),
+              shadowColor: Color(0x80222222),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    width: 180,
-                    height: 200,
+                    width: 150,
+                    height: 140,
                     child: ClipRRect(
                       borderRadius: new BorderRadius.circular(24.0),
-                      child: Image(
+                      child: Image.asset(
+                        _image,
                         fit: BoxFit.fill,
-                        image: NetworkImage(_image),
                       ),
                     ),
                   ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: myDetailsContainer1(restaurantName),
+                      child: myDetailsContainer1(buildingName, departmentName),
                     ),
                   ),
                 ],
@@ -110,7 +122,7 @@ class _MapPageState extends State<Map> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName) {
+  Widget myDetailsContainer1(String buildingName, String departmentName) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
@@ -118,84 +130,17 @@ class _MapPageState extends State<Map> {
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
               child: Text(
-            restaurantName,
+            buildingName,
             style: TextStyle(
-                color: Color(0xff6200ee),
+                color: Theme.of(context).accentColor,
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold),
           )),
         ),
-        SizedBox(height: 5.0),
-        Container(
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-                child: Text(
-              "4.1",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 18.0,
-              ),
-            )),
-            Container(
-              child: Icon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.amber,
-                size: 15.0,
-              ),
-            ),
-            Container(
-              child: Icon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.amber,
-                size: 15.0,
-              ),
-            ),
-            Container(
-              child: Icon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.amber,
-                size: 15.0,
-              ),
-            ),
-            Container(
-              child: Icon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.amber,
-                size: 15.0,
-              ),
-            ),
-            Container(
-              child: Icon(
-                FontAwesomeIcons.solidStarHalf,
-                color: Colors.amber,
-                size: 15.0,
-              ),
-            ),
-            Container(
-                child: Text(
-              "(946)",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 18.0,
-              ),
-            )),
-          ],
-        )),
-        SizedBox(height: 5.0),
+        SizedBox(height: 25.0),
         Container(
             child: Text(
-          "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-          style: TextStyle(
-            color: Colors.black54,
-            fontSize: 18.0,
-          ),
-        )),
-        SizedBox(height: 5.0),
-        Container(
-            child: Text(
-          "Closed \u00B7 Opens 17:00 Thu",
+          departmentName,
           style: TextStyle(
               color: Colors.black54,
               fontSize: 18.0,
