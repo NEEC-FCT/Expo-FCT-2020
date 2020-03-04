@@ -34,7 +34,7 @@ class _MapPageState extends State<Map> {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 0.0),
+        margin: EdgeInsets.symmetric(vertical: 60.0),
         height: 120.0,
         child: ListView(
           scrollDirection: Axis.horizontal,
@@ -94,7 +94,7 @@ class _MapPageState extends State<Map> {
               color: Colors.white,
               elevation: 8.0,
               borderRadius: BorderRadius.circular(24.0),
-              shadowColor: Color(0x80222222),
+              shadowColor: Color(0x00222222),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
