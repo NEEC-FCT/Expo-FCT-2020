@@ -1,6 +1,8 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import '../fade_route.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'animated_dot.dart';
 import 'animated_plane_icon.dart';
 import 'flight_stop.dart';
@@ -21,18 +23,16 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   final double _initialPlanePaddingBottom = 16.0;
   final double _minPlanePaddingTop = 16.0;
   final List<FlightStop> _flightStops = [
-    FlightStop(  "DEC                          ", "Cidade Sustentável"),
-    FlightStop(  "DF                            ", "Laser Solar"),
-   FlightStop(  "DCTB                         ", "Biorefinarias de resíduos"),
-    FlightStop(  "DCTB                          ", "\“Alimentos versus Antibióticos\”"),
-    FlightStop(  "DCT                           ", "Riqueza hidromineral de Portugal"),
-    FlightStop(  "DCT                           ", "Vem explorar os efeitos da poluição no solo e em ambiente subterrâneo"),
-    FlightStop(  "DQ                            ", "À Descoberta da \nEstrutura 3D das Proteínas!"),
-   FlightStop(  "DQ                            ", "Produção de biopolímeros"),
-    FlightStop(  "DCM                           ", "Materiais e Sustentabilidade"),
-    FlightStop(  "DCM                           ", "Tecnologias Wearable sustentáveis"),
-    FlightStop(  "DCV                           ", "Belos Micróbios"),
-
+    FlightStop("DEC", "Cidade Sustentável" , 38.6610702,-9.2058428),
+    FlightStop("DF", "Laser Solar" , 38.6610702,-9.2058428),
+    FlightStop("DCTB", "Biorefinarias de resíduos" , 38.6610702,-9.2058428),
+    FlightStop("DCTB", "\“Alimentos versus Antibióticos\”" , 38.6610702,-9.2058428),
+    FlightStop("DCT", "Riqueza hidromineral de Portugal" , 38.6610702,-9.2058428),
+    FlightStop("DCT", "Vem explorar os efeitos da poluição" , 38.6610702,-9.2058428),
+    FlightStop("DQ", "Produção de biopolímeros" , 38.6610702,-9.2058428),
+    FlightStop("DCM", "Materiais e Sustentabilidade" , 38.6610702,-9.2058428),
+    FlightStop("DCM", "Tecnologias Wearable sustentáveis" , 38.6610702,-9.2058428),
+    FlightStop("DCV", "Belos Micróbios" , 38.6610702,-9.2058428),
   ];
   final List<GlobalKey<FlightStopCardState>> _stopKeys = [];
 
@@ -84,11 +84,10 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     return Container(
       width: double.infinity,
       child: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[_buildPlane()]
-          ..addAll(_flightStops.map(_buildStopCard))
-          ..addAll(_flightStops.map(_mapFlightStopToDot))
-      ),
+          alignment: Alignment.center,
+          children: <Widget>[_buildPlane()]
+            ..addAll(_flightStops.map(_buildStopCard))
+            ..addAll(_flightStops.map(_mapFlightStopToDot))),
     );
   }
 
@@ -107,12 +106,18 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
           children: <Widget>[
             isLeft ? Container() : Expanded(child: Container()),
             Expanded(
+                child: InkWell(
+              onTap: () {
+                // Function is executed on tap.
+                print("Card clicked: " + index.toString());
+                MapUtils.openMap( _flightStops[index].lat ,  _flightStops[index].long );
+              },
               child: FlightStopCard(
                 key: _stopKeys[index],
                 flightStop: stop,
                 isLeft: isLeft,
               ),
-            ),
+            )),
             !isLeft ? Container() : Expanded(child: Container()),
           ],
         ),
@@ -144,12 +149,11 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         ],
       ),
       builder: (context, child) => Positioned(
-            top: _planeTopPadding,
-            child: child,
-          ),
+        top: _planeTopPadding,
+        child: child,
+      ),
     );
   }
-
 
   _initSizeAnimations() {
     _planeSizeAnimationController = AnimationController(
@@ -238,5 +242,21 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
 
   _animateFab() {
     _fabAnimationController.forward();
+  }
+}
+
+
+
+class MapUtils {
+
+  MapUtils._();
+
+  static Future<void> openMap(double latitude, double longitude) async {
+    String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    if (await canLaunch(googleUrl)) {
+      await launch(googleUrl);
+    } else {
+      throw 'Could not open the map.';
+    }
   }
 }

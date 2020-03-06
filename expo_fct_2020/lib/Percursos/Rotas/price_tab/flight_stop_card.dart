@@ -6,7 +6,7 @@ import 'flight_stop.dart';
 class FlightStopCard extends StatefulWidget {
   final FlightStop flightStop;
   final bool isLeft;
-  static const double height = 80.0;
+  static const double height = 100.0;
   static const double width = 140.0;
 
   const FlightStopCard(
@@ -61,7 +61,7 @@ class FlightStopCardState extends State<FlightStopCard>
       child: AnimatedBuilder(
         animation: _animationController,
         builder: (context, child) => new Stack(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               children: <Widget>[
                 buildLine(),
                 buildCard(),
@@ -85,8 +85,11 @@ class FlightStopCardState extends State<FlightStopCard>
 
   Positioned buildPriceText() {
     double animationValue = _pricePositionAnimation.value;
-    return Positioned(
-      right: getMarginRight(animationValue),
+    return
+
+      Positioned(
+        left: getMarginLeft(animationValue),
+        right: getMarginRight(animationValue),
       child: Text(
         "${widget.flightStop.price}",
         textAlign: TextAlign.center,
@@ -100,12 +103,13 @@ class FlightStopCardState extends State<FlightStopCard>
     double animationValue = _fromToPositionAnimation.value;
     return Positioned(
       left: getMarginLeft(animationValue),
+      right: getMarginRight(animationValue),
       bottom: getMarginBottom(animationValue),
       child: Text(
         "${widget.flightStop.fromToTime}",
         textAlign: TextAlign.center,
         style: new TextStyle(
-            fontSize: 12.0* animationValue, color: Colors.grey, fontWeight: FontWeight.w500,),
+            fontSize: 12.0* animationValue, color: Colors.grey, fontWeight: FontWeight.w700,),
       ),
     );
   }
@@ -134,7 +138,7 @@ class FlightStopCardState extends State<FlightStopCard>
         scale: animationValue,
         child: Container(
           width: 140.0,
-          height: 80.0,
+          height: 100.0,
           child: new Card(
             color: Colors.grey.shade100,
           ),
