@@ -2,7 +2,9 @@ import 'package:expandable/expandable.dart';
 import 'package:expo_fct_2020/Percursos/Rotas/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:latlong/latlong.dart';
 
 String descricao =
     "A Economia Circular assenta na redução, reutilização, recuperação e reciclagem de materiais e energia, evitando o desperdício de recursos e por isso com impacto positivo no Planeta.\n" +
@@ -134,17 +136,80 @@ Widget Percurso1(BuildContext context) {
                     textAlign: TextAlign.start,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)))),
-        Material(
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.asset('assets/mapademo.PNG',
-                      width: 110.0,
-                      height: 110.0),
-                ),),
-            )
+        Container(
+          height: 200.0,
+          width: MediaQuery.of(context).size.width * 0.90,
+          child: FlutterMap(
+            options: new MapOptions(
+              center: new LatLng( 38.661326, -9.205022 ),
+              zoom: 16.0,
+            ),
+            layers: [
+              new TileLayerOptions(
+                urlTemplate: "https://api.tiles.mapbox.com/v4/"
+                    "{id}/{z}/{x}/{y}@2x.png?access_token={accessToken}",
+                additionalOptions: {
+                  //TODO token
+                  'accessToken':
+                      'TOKEN',
+                  'id': 'mapbox.streets',
+                },
+              ),
+              new MarkerLayerOptions(
+                markers: [
+                  new Marker(
+                    width: 40.0,
+                    height: 40.0,
+                    point: new LatLng(38.660327,-9.2056333),
+                    builder: (ctx) => new Container(
+                      child: new  Icon(
+                        Icons.book,
+                        color: Colors.blueAccent,
+                        size: 27.0,
+                      ),
+                    ),
+                  ),
+                  new Marker(
+                    width: 40.0,
+                    height: 40.0,
+                    point: new LatLng( 38.660830, -9.203519 ),
+                    builder: (ctx) => new Container(
+                      child: new  Icon(
+                        Icons.computer,
+                        color: Colors.blueAccent,
+                        size: 27.0,
+                      ),
+                    ),
+                  ),
+                  new Marker(
+                    width: 40.0,
+                    height: 40.0,
+                    point: new LatLng( 38.660704, -9.204903),
+                    builder: (ctx) => new Container(
+                      child: new  Icon(
+                        Icons.android,
+                        color: Colors.blueAccent,
+                        size: 27.0,
+                      ),
+                    ),
+                  ),
+                  new Marker(
+                    width: 40.0,
+                    height: 40.0,
+                    point: new LatLng( 38.662350, -9.207558 ),
+                    builder: (ctx) => new Container(
+                      child: new  Icon(
+                        Icons.bug_report,
+                        color: Colors.blueAccent,
+                        size: 27.0,
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            ],
+          ),
         ),
         Spacer(),
         SizedBox(
@@ -178,8 +243,8 @@ Widget Percurso1(BuildContext context) {
                 children: <Widget>[
                   Spacer(),
                   Container(
-                    child: Text( returnText(index) ,
-                        textAlign: TextAlign.center ,
+                    child: Text(returnText(index),
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -193,7 +258,6 @@ Widget Percurso1(BuildContext context) {
                     ),
                   ),
                   Spacer(),
-
                 ],
               );
             },
