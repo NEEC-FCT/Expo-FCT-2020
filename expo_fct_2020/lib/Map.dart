@@ -34,7 +34,7 @@ class _MapPageState extends State<Map> {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 60.0),
+        margin: EdgeInsets.symmetric(vertical: 20.0),
         height: 120.0,
         child: ListView(
           scrollDirection: Axis.horizontal,
@@ -159,6 +159,8 @@ class _MapPageState extends State<Map> {
         _myController = controller;
       },
       onPageFinished: (url) {
+
+        //TODO tirar o listener do click em edificios
         _myController.loadUrl("javascript:(function() { " +
             "document.getElementById('gbr').style.display='none'; } )()");
         _myController.loadUrl("javascript:(function() { " +

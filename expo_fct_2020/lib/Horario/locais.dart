@@ -16,18 +16,18 @@ class Local {
 
 List<Actividade> actividades = [
   Actividade(
-      nome: "Actividade 1 bueda grande e bueda fixe",
-      imageUrl: "https://www.rosssolar.com/wp-content/uploads/2017/08/image-placeholder.jpg",
+      nome: "Arcade",
+      imageUrl: "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEE/arcade.jpg",
       time: "12:00-16:00"
   ),
   Actividade(
-      nome: "Actividade 2",
-      imageUrl: "https://www.rosssolar.com/wp-content/uploads/2017/08/image-placeholder.jpg",
-      time: "13:00"
+      nome: "Supercondutividade",
+      imageUrl: "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEE/supercondutores.png",
+      time: "12:00-16:00"
   ),
   Actividade(
-      nome: "Actividade 3",
-      imageUrl: "https://www.rosssolar.com/wp-content/uploads/2017/08/image-placeholder.jpg",
+      nome: "Sistemas electrónicos com FPGAs",
+      imageUrl: "https://www.expo.fct.unl.pt/sites/www.expo.fct.unl.pt/files/imagecache/l160/imagens/actividades/DEE/sistemas-electronicos.png",
       time: "14:00"
   ),
 ];
