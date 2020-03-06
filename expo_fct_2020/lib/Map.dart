@@ -34,7 +34,7 @@ class _MapPageState extends State<Map> {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
+        margin: EdgeInsets.symmetric(vertical: 60.0),
         height: 120.0,
         child: ListView(
           scrollDirection: Axis.horizontal,
